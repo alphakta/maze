@@ -148,22 +148,7 @@ function main() {
       default:
         console.log("Il n'y a aucune map à ce nom :", data.toString());
     }
-    // process.exit();
+    process.exit();
   });
 }
 main()
-
-
-
-
-
-
-// var a = performance.now();
-// // mazeResolve(cellStart, stack)
-// var b = performance.now();
-// console.log('Find :', cellEnd)
-
-
-// for(let i=0; i< stack.length; i++){
-//   map[stack[i].x][stack[i].y] = 'y'
-// }
