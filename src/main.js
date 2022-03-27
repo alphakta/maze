@@ -5,7 +5,7 @@ const fs = require('fs');
 let lineMap = null;
 let cellStart = null;
 let cellEnd = null;
-let stack = []
+let stack = null;
 let map = null;
 // Taille en largeur/longueur de la map
 let lengthCol = null;
@@ -13,7 +13,6 @@ let lengthRow = null;
 
 // Obstacles - Chemins
 const wall = '*'
-const direction = ' '
 const directionVisited = '-'
 const directionFinal = '2'
 
@@ -55,7 +54,6 @@ function mazeResolve(cell, stack) {
     return res
   }
 
-  map[cell.x][cell.y] = direction
   stack.pop()
 
   return false;
@@ -73,6 +71,7 @@ function main() {
         cellStart = { x: 1, y: 12 };
         lengthCol = map[0].length;
         lengthRow = map.length;
+        stack = []
         console.log('-----------\r\n Debut:', cellStart)
         a = performance.now();
         mazeResolve(cellStart, stack)
@@ -89,12 +88,13 @@ function main() {
         cellStart = { x: 26, y: 33 };
         lengthCol = map[0].length;
         lengthRow = map.length;
+        stack = []
         console.log('-----------\r\n Debut:', cellStart)
         a = performance.now();
         mazeResolve(cellStart, stack)
         b = performance.now();
         console.log('Find :', cellEnd)
-        console.log(`Temps d'éxecution: ` + (b - a).toFixed(2) + ' ms.');        
+        console.log(`Temps d'éxecution: ` + (b - a).toFixed(2) + ' ms.');  
         break;
 
       case "3":
@@ -105,12 +105,13 @@ function main() {
         cellStart = { x: 0, y: 5 };
         lengthCol = map[0].length;
         lengthRow = map.length;
+        stack = []
         console.log('-----------\r\n Debut:', cellStart)
         a = performance.now();
         mazeResolve(cellStart, stack)
         b = performance.now();
         console.log('Find :', cellEnd)
-        console.log(`Temps d'éxecution: ` + (b - a).toFixed(2) + ' ms.');   
+        console.log(`Temps d'éxecution: ` + (b - a).toFixed(2) + ' ms.');
         break;
 
       case "4":
@@ -121,12 +122,13 @@ function main() {
         cellStart = { x: 0, y: 1 };
         lengthCol = map[0].length;
         lengthRow = map.length;
+        stack = []
         console.log('-----------\r\n Debut:', cellStart)
         a = performance.now();
         mazeResolve(cellStart, stack)
         b = performance.now();
         console.log('Find :', cellEnd)
-        console.log(`Temps d'éxecution: ` + (b - a).toFixed(2) + ' ms.');   
+        console.log(`Temps d'éxecution: ` + (b - a).toFixed(2) + ' ms.');
         break;
 
       case "5":
@@ -137,6 +139,7 @@ function main() {
         cellStart = { x: 55, y: 0 };
         lengthCol = map[0].length;
         lengthRow = map.length;
+        stack = []
         console.log('-----------\r\n Debut:', cellStart)
         a = performance.now();
         mazeResolve(cellStart, stack)
@@ -148,7 +151,6 @@ function main() {
       default:
         console.log("Il n'y a aucune map à ce nom :", data.toString());
     }
-    process.exit();
   });
 }
 main()
