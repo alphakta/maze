@@ -1,25 +1,41 @@
-const { performance } = require('perf_hooks');
 const fs = require('fs');
 
 //Presets map, cellule & stack
-let lineMap = null;
+const argvs = process.argv.slice(1)
+const file = argvs[1]
+const map = fs.readFileSync(file, 'utf-8')
+              .split('\r\n')
+              .map((line) => { return line.split('') })
 let cellStart = null;
-let cellEnd = null;
-let stack = null;
-let map = null;
+let stack = [];
 // Taille en largeur/longueur de la map
-let lengthCol = null;
-let lengthRow = null;
-
+const lengthCol = map[0].length;
+const lengthRow = map.length;
 // Obstacles - Chemins
 const wall = '*'
-const directionVisited = '-'
+const directionVisited = 'x'
 const directionFinal = '2'
 
-// Variable for time execution
-let a, b;
+if(file == './maps/rect_01.map')
+  cellStart = { x: 1, y: 12 };
+if(file == './maps/rect_02.map')
+  cellStart = { x: 26, y: 33 };
+if(file == './maps/rect_03.map')
+  cellStart = { x: 0, y: 5 };
+if(file == './maps/rect_04.map')
+  cellStart = { x: 0, y: 1 };
+if(file == './maps/rect_05.map')
+  cellStart = { x: 55, y: 0 }
+
+mazeResolve(cellStart, stack)
+
+fs.writeFile('./maps/map_resolve.map',
+    map.map(function(v){ return v.join(',') }).join('\n'),
+    function (err) { if (err) throw err; }
+)
 
 function mazeResolve(cell, stack) {
+
   if (cell.x < 0 || cell.x >= lengthRow) {
     return false
   }
@@ -29,7 +45,6 @@ function mazeResolve(cell, stack) {
   }
 
   if (map[cell.x][cell.y] == directionFinal) {
-    cellEnd = cell // fait augmenter le temps d'exec
     return true;
   }
 
@@ -58,99 +73,3 @@ function mazeResolve(cell, stack) {
 
   return false;
 }
-function main() {
-  console.log("*** Indiquez le numéro de la map que vous voulez résoudre : *** \n - tapez 1 pour rect_01.map \n - tapez 2 pour rect_02.map \n - tapez 3 pour rect_03.map \n - tapez 4 pour rect_04.map \n - tapez 5 pour rect_05.map")
-  process.stdin.on('data', data => {
-
-    switch (data.toString().trim()) {
-      case "1":
-        lineMap = fs.readFileSync('./maps/rect_01.map', 'utf-8').split('\r\n');
-        map = lineMap.map((line) => {
-          return line.split('')
-        });
-        cellStart = { x: 1, y: 12 };
-        lengthCol = map[0].length;
-        lengthRow = map.length;
-        stack = []
-        console.log('-----------\r\n Debut:', cellStart)
-        a = performance.now();
-        mazeResolve(cellStart, stack)
-        b = performance.now();
-        console.log('Find :', cellEnd)
-        console.log(`Temps d'éxecution: ` + (b - a).toFixed(2) + ' ms.');
-        break;
-
-      case "2":
-        lineMap = fs.readFileSync('./maps/rect_02.map', 'utf-8').split('\r\n');
-        map = lineMap.map((line) => {
-          return line.split('')
-        });
-        cellStart = { x: 26, y: 33 };
-        lengthCol = map[0].length;
-        lengthRow = map.length;
-        stack = []
-        console.log('-----------\r\n Debut:', cellStart)
-        a = performance.now();
-        mazeResolve(cellStart, stack)
-        b = performance.now();
-        console.log('Find :', cellEnd)
-        console.log(`Temps d'éxecution: ` + (b - a).toFixed(2) + ' ms.');  
-        break;
-
-      case "3":
-        lineMap = fs.readFileSync('./maps/rect_03.map', 'utf-8').split('\r\n');
-        map = lineMap.map((line) => {
-          return line.split('')
-        });
-        cellStart = { x: 0, y: 5 };
-        lengthCol = map[0].length;
-        lengthRow = map.length;
-        stack = []
-        console.log('-----------\r\n Debut:', cellStart)
-        a = performance.now();
-        mazeResolve(cellStart, stack)
-        b = performance.now();
-        console.log('Find :', cellEnd)
-        console.log(`Temps d'éxecution: ` + (b - a).toFixed(2) + ' ms.');
-        break;
-
-      case "4":
-        lineMap = fs.readFileSync('./maps/rect_04.map', 'utf-8').split('\r\n');
-        map = lineMap.map((line) => {
-          return line.split('')
-        });
-        cellStart = { x: 0, y: 1 };
-        lengthCol = map[0].length;
-        lengthRow = map.length;
-        stack = []
-        console.log('-----------\r\n Debut:', cellStart)
-        a = performance.now();
-        mazeResolve(cellStart, stack)
-        b = performance.now();
-        console.log('Find :', cellEnd)
-        console.log(`Temps d'éxecution: ` + (b - a).toFixed(2) + ' ms.');
-        break;
-
-      case "5":
-        lineMap = fs.readFileSync('./maps/rect_05.map', 'utf-8').split('\r\n');
-        map = lineMap.map((line) => {
-          return line.split('')
-        });
-        cellStart = { x: 55, y: 0 };
-        lengthCol = map[0].length;
-        lengthRow = map.length;
-        stack = []
-        console.log('-----------\r\n Debut:', cellStart)
-        a = performance.now();
-        mazeResolve(cellStart, stack)
-        b = performance.now();
-        console.log('Find :', cellEnd)
-        console.log(`Temps d'éxecution: ` + (b - a).toFixed(2) + ' ms.');
-        break;
-
-      default:
-        console.log("Il n'y a aucune map à ce nom :", data.toString());
-    }
-  });
-}
-main()
