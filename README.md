@@ -38,7 +38,7 @@ I will check the execution time of your program, and you will get points accordi
 
 ### Result
 
-The algorithm solved via a command on the console (see in the **Rules** part), will be displayed in a file **map_resolve.map**.
+The algorithm solved via a command on the console (see in the **Rules** part), will be displayed in a file **map_resolve.map** (in the file maps).
 
 ## <a name='rules'> Rules 🐱</a>
 
