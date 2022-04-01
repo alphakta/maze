@@ -28,13 +28,13 @@ The algorithm solved via a command on the console (see in the **Rules** part), w
 
 ## <a name='rules'> Rules 🐱</a>
 
-Hi, There are some conditions to respect in order to solve each map. There are 5 maps that are mazes. To solve each map, type this in the console :
+Hi, there are some rules to respect in order to solve each map. There are 5 maps that are mazes. To solve each map, type this in the console :
 
-* To resolv map 1, type : **time node .\src\main.js ./maps/rect_01.map** 
-* To resolv map 2, type : **time node .\src\main.js ./maps/rect_02.map** 
-* To resolv map 3, type : **time node .\src\main.js ./maps/rect_03.map** 
-* To resolv map 4, type : **time node .\src\main.js ./maps/rect_04.map** 
-* To resolv map 5, type : **time node .\src\main.js ./maps/rect_05.map**
+* To resolv map 1, type : ```time node .\src\main.js ./maps/rect_01.map``` 
+* To resolv map 2, type : ```time node .\src\main.js ./maps/rect_02.map```
+* To resolv map 3, type : ```time node .\src\main.js ./maps/rect_03.map``` 
+* To resolv map 4, type : ```time node .\src\main.js ./maps/rect_04.map``` 
+* To resolv map 5, type : ```time node .\src\main.js ./maps/rect_05.map```
 
 ## <a name='overview'>🐨 Overview</a>
 
