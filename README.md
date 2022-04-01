@@ -36,7 +36,7 @@ Hi, there are some rules to respect in order to solve each map. There are 5 maps
 * To resolv map 4, type : ```time node .\src\main.js ./maps/rect_04.map``` 
 * To resolv map 5, type : ```time node .\src\main.js ./maps/rect_05.map```
 
-## <a name='overview'>🐨 Overview</a>
+## <a name='overview'>Overview 🐨</a>
 
 The purpose of this project is simple, you **MUST** create a binary or a script that take any textual map file that represent a labyrinth and you have to output the labyrinth with a trace of the labyrinth solution.
 ```sh
