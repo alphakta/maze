@@ -1,13 +1,13 @@
 const fs = require('fs');
+const { performance } = require('perf_hooks');
 
-//Presets map, cellule & stack
+//Presets map & cellule start
 const argvs = process.argv.slice(1)
 const file = argvs[1]
 const map = fs.readFileSync(file, 'utf-8')
               .split('\r\n')
               .map((line) => { return line.split('') })
-let cellStart = null;
-let stack = [];
+let cellStart;
 // Taille en largeur/longueur de la map
 const lengthCol = map[0].length;
 const lengthRow = map.length;
@@ -27,14 +27,14 @@ if(file == './maps/rect_04.map')
 if(file == './maps/rect_05.map')
   cellStart = { x: 55, y: 0 }
 
-mazeResolve(cellStart, stack)
+mazeResolve(cellStart)
 
 fs.writeFile('./maps/map_resolve.map',
             map.map(function(v){ return v.join(',') }).join('\n'),
            function (err) { if (err) throw err; }
            )
 
-function mazeResolve(cell, stack) {
+function mazeResolve(cell) {
 
   if (cell.x < 0 || cell.x >= lengthRow) {
     return false
@@ -53,23 +53,21 @@ function mazeResolve(cell, stack) {
   }
 
   map[cell.x][cell.y] = directionVisited
-  stack.push(cell)
 
   // Recursive for 8 direction
-  let res = mazeResolve({ x: cell.x, y: cell.y + 1 }, stack) // Up
-    || mazeResolve({ x: cell.x + 1, y: cell.y + 1 }, stack) // Up-Right
-    || mazeResolve({ x: cell.x + 1, y: cell.y }, stack)  // Right
-    || mazeResolve({ x: cell.x + 1, y: cell.y - 1 }, stack) // Down-Right
-    || mazeResolve({ x: cell.x, y: cell.y - 1 }, stack) // Down
-    || mazeResolve({ x: cell.x - 1, y: cell.y - 1 }, stack) // Down-Left
-    || mazeResolve({ x: cell.x - 1, y: cell.y }, stack) // Left
-    || mazeResolve({ x: cell.x - 1, y: cell.y + 1 }, stack) // Up-Left
+  let res = mazeResolve({ x: cell.x, y: cell.y + 1 }) // Up
+    || mazeResolve({ x: cell.x + 1, y: cell.y + 1 }) // Up-Right
+    || mazeResolve({ x: cell.x + 1, y: cell.y })  // Right
+    || mazeResolve({ x: cell.x + 1, y: cell.y - 1 }) // Down-Right
+    || mazeResolve({ x: cell.x, y: cell.y - 1 }) // Down
+    || mazeResolve({ x: cell.x - 1, y: cell.y - 1 }) // Down-Left
+    || mazeResolve({ x: cell.x - 1, y: cell.y }) // Left
+    || mazeResolve({ x: cell.x - 1, y: cell.y + 1 }) // Up-Left
 
   if (res != false) {
     return res
   }
 
-  stack.pop()
 
   return false;
 }
