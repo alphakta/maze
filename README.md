@@ -53,7 +53,7 @@ sys    0m0,012s
 ...
 ```
 
-## <a name='credits'> Credits</a>
+## <a name='credits'>Credits 😻</a>
 
 * Made with 💛 by Omma Habiba BIPLOB / Alpha KEITA (students at EFREI PARIS)
 
