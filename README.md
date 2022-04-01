@@ -1,39 +1,38 @@
 <h1 align="center">
-  Maze
+  Maze 🦄
 </h1>
 
-## <a name='summary'> Summary</a>
+## <a name='summary'> Summary 🦄</a>
 
+* [Story](#story)
 * [Rules](#rules)
 * [Overview](#overview)
-* [Story](#story)
-* [Bonus](#bonus)
 * [Credits](#credits)
 
-## <a name='rules'> Rules</a>
+## <a name='story'>Story 🦊</a>
 
-Hi, here are some rules to carry out this story oav;
+### Prelude
 
-* You **MUST** create a git repository named `maze`
-* You **MUST** create a file called `.author.json` with your fullname
+As a programming pragmatic module, you **CAN** use the programming language you want/love.<br />
+The only thing is that you must provide a **Dockerfile** that run your project ;)
+You **MUST** return a **Dockerfile**
 
-```sh
-~/efrei-courses/learn-algorithm/exams/maze ❯❯❯ cat -e .author.json
-[
-  {
-    "firstName": "Dylan",
-    "lastName": "DE SOUSA"
-  },
-  {
-    "firstName": "John",
-    "lastName": "DOE"
-  }
-]$
-```
-* You **MUST** return the project on Friday March, 18 at 23:42 pm.<br />
-* You **MUST** return a **Dockerfile**
+### Algorithm
 
-## <a name='overview'>Overview</a>
+Your challenge is to have the best algorithm of your class ! <br />
+I will check the execution time of your program, and you will get points according to your position :)
+
+## <a name='rules'> Rules 🐱</a>
+
+Hi, There are some conditions to respect in order to solve each map. There are 5 maps that are mazes. To solve each map, type this in the console :
+
+* To resolv map 1, type : **time node .\src\main.js ./maps/rect_01.map** 
+* To resolv map 2, type : **time node .\src\main.js ./maps/rect_02.map** 
+* To resolv map 3, type : **time node .\src\main.js ./maps/rect_03.map** 
+* To resolv map 4, type : **time node .\src\main.js ./maps/rect_04.map** 
+* To resolv map 5, type : **time node .\src\main.js ./maps/rect_05.map**
+
+## <a name='overview'>🐨 Overview</a>
 
 The purpose of this project is simple, you **MUST** create a binary or a script that take any textual map file that represent a labyrinth and you have to output the labyrinth with a trace of the labyrinth solution.
 ```sh
@@ -50,23 +49,8 @@ sys    0m0,012s
 ...
 ```
 
-## <a name='story'>Story</a>
-
-### Prelude
-
-As a programming pragmatic module, you **CAN** use the programming language you want/love.<br />
-The only thing is that you must provide a **Dockerfile** that run your project ;)
-
-### Algorithm
-
-Your challenge is to have the best algorithm of your class ! <br />
-I will check the execution time of your program, and you will get points according to your position :)
-
-## <a name='bonus'> Bonus</a>
-
-* Handle not squared map like [this oval map](./data/maps/oval_01.map)
-* Improve the graphics
-
 ## <a name='credits'> Credits</a>
 
-Craft by **Call-Me-Dev**.
+* Made with 💛 by Omma Habiba BIPLOB / Alpha KEITA (students at EFREI PARIS)
+
+<p align="right"><a href="#top">back to top</a></p>
