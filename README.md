@@ -11,6 +11,20 @@
 
 ## <a name='story'>Story 🦊</a>
 
+```sh
+~/efrei-courses/learn-algorithm/exams/maze ❯❯❯ cat -e .author.json
+[
+  {
+      "firstName": "Omma Habiba",
+      "lastName": "BIPLOB"
+    },
+    {
+      "firstName": "Alpha",
+      "lastName": "KEITA"
+    }
+]$
+```
+
 ### Prelude
 
 As a programming pragmatic module, you **CAN** use the programming language you want/love.<br />
