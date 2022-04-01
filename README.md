@@ -22,6 +22,10 @@ You **MUST** return a **Dockerfile**
 Your challenge is to have the best algorithm of your class ! <br />
 I will check the execution time of your program, and you will get points according to your position :)
 
+### Result
+
+The algorithm solved via a command on the console (see in the **Rules** part), will be displayed in a file **map_resolve.map**.
+
 ## <a name='rules'> Rules 🐱</a>
 
 Hi, There are some conditions to respect in order to solve each map. There are 5 maps that are mazes. To solve each map, type this in the console :
