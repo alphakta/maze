@@ -69,6 +69,6 @@ sys    0m0,012s
 
 ## <a name='credits'>Credits 😻</a>
 
-* Made with 💛 by Omma Habiba BIPLOB / Alpha KEITA (students at EFREI PARIS)
+* Made with 💛 by Alpha KEITA / Omma Habiba BIPLOB (students at EFREI PARIS)
 
 <p align="right"><a href="#top">back to top</a></p>
